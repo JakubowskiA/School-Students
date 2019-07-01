@@ -1,2 +1,8 @@
 <h1>School#show</h1>
 <p>Find me in app/views/school/show.html.erb</p>
+<%@school.students.each do |student|%>
+<%=link_to student.name, students_path(student)%>
+<%= form_tag students_path(student), method: "delete" do %>
+  <%= submit_tag "Delete #{student.name}" %>
+<% end %>
+<% end %>
